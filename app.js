@@ -16,18 +16,27 @@ function calcPrice(event) {
 
     let orderValue = amountItems * priceItem;
     let startPrice = orderValue;
+    let toDiscount
+
+    if (orderValue < 1000) {
+        toDiscount = 1000 - orderValue;
+    }
 
     if (orderValue >= 1000 && orderValue < 5000) {
         orderValue = orderValue * 0.97;
+        toDiscount = 5000 - startPrice;
     }
     if (orderValue >= 5000 && orderValue < 7000) {
         orderValue = orderValue * 0.95;
+        toDiscount = 7000 - startPrice;
     }
     if (orderValue >= 7000 && orderValue < 10000) {
         orderValue = orderValue * 0.93;
+        toDiscount = 10000 - startPrice;
     }
     if (orderValue >= 10000 && orderValue < 50000) {
         orderValue = orderValue * 0.9;
+        toDiscount = 50000 - startPrice;
     }
     if (orderValue >= 50000) {
         orderValue = orderValue * 0.85;
@@ -35,12 +44,12 @@ function calcPrice(event) {
 
     const StateTax = Object.keys(stateTax).map(k => stateTax[k])[stateCode].tax
 
-    let valueWithTax = orderValue * StateTax
+    let valueWithTax = orderValue * StateTax;
 
-    if (ValueWithTax === 0) {
+    if (valueWithTax === 0) {
         totalPrice.textContent = "Total Price: "
     } else {
-        totalPrice.textContent = "Total Price: $" + (Math.round(orderValue * 100) / 100);
+        totalPrice.textContent = "Total Price: $" + (Math.round(valueWithTax * 100) / 100);
     }
 
     let savedSum = startPrice - orderValue
@@ -48,5 +57,12 @@ function calcPrice(event) {
         totalSave.textContent = "You saved: "
     } else {
         totalSave.textContent = "You saved: $" + (Math.round(savedSum * 100) / 100);
+    }
+
+    if (toDiscount >= 1000 && toDiscount < 50000) {
+        totalMore.textContent = "You need to spend $" + toDiscount + " more for a better discount";
+    }
+    if (toDiscount > 0 && toDiscount < 1000) {
+        totalMore.textContent = "You need to spend $" + toDiscount + " more for a discount";
     }
 }
