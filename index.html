@@ -23,7 +23,7 @@
                 <div class="mb-3">
                     <label for="priceInput" class="form-label">Price per item: </label>
                     <input type="number" onkeyup="onChange=calcPrice();" id="priceInput" placeholder="ex: 7.5">
-                    <button type="button" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#discModal">Discount info</button>
+                    <button type="button" class="btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#discModal">Discount info</button>
                 </div>
                 <label for="stateInput" class="form-label">State code: </label>
                 <select class="mb-3" onClick="onChange=calcPrice();" id="stateInput">
@@ -34,6 +34,7 @@
                     <option value="3">Alabama</option>
                     <option value="4">California</option>
                 </select>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#taxModal">State & Tax info</button>
             </form>
             </form>
             <div id="totalPrices" class="card-footer">
@@ -80,6 +81,50 @@
                             <tr>
                                 <td>$50000</td>
                                 <td>15%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- State tax modal -->
+    <div class="modal fade" id="taxModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">State tax info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Tax rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UT</td>
+                                <td>6.85%</td>
+                            </tr>
+                            <tr>
+                                <td>NV</td>
+                                <td>8%</td>
+                            </tr>
+                            <tr>
+                                <td>TX</td>
+                                <td>6.25%</td>
+                            </tr>
+                            <tr>
+                                <td>AL</td>
+                                <td>4%</td>
+                            </tr>
+                            <tr>
+                                <td>CA</td>
+                                <td>8.25%</td>
                             </tr>
                         </tbody>
                     </table>
