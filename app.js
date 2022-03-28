@@ -1,5 +1,6 @@
 onchange = function () { calcPrice };
 
+
 let stateTax = [
     { code: "UT", tax: 1.05 },
     { code: "NV", tax: 1.08 },
@@ -61,8 +62,7 @@ function calcPrice(event) {
 
     if (toDiscount >= 1000 && toDiscount < 50000) {
         totalMore.textContent = "You need to spend $" + toDiscount + " more for a better discount";
-    }
-    if (toDiscount > 0 && toDiscount < 1000) {
+    } else {
         totalMore.textContent = "You need to spend $" + toDiscount + " more for a discount";
     }
 }
