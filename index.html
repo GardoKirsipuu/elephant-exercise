@@ -31,11 +31,14 @@
             <form class="card-body">
                 <div class="mb-3">
                     <label for="amountInput" class="form-label">Amount of items: </label>
-                    <input type="number" min="0" pattern="[0-9]" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" step="1" onkeyup="onChange=calcPrice();" id="amountInput" placeholder="ex: 15">
+                    <input type="number" min="0" pattern="[0-9]"
+                        onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"
+                        step="1" onkeyup="onChange=calcPrice();" id="amountInput" placeholder="ex: 15">
                 </div>
                 <div class="mb-3">
                     <label for="priceInput" class="form-label">Price per item: </label>
-                    <input type="number" onkeypress="return event.charCode != 45" onkeyup="onChange=calcPrice();" id="priceInput" placeholder="ex: 7.5">
+                    <input type="number" onkeypress="return event.charCode != 45" onkeyup="onChange=calcPrice();"
+                        id="priceInput" placeholder="ex: 7.5">
                     <button type="button" class="btn btn-secondary mt-3" data-bs-toggle="modal"
                         data-bs-target="#discModal">Discount info</button>
                 </div>
@@ -151,4 +154,5 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 <script src="app.js"></script>
+
 </html>
